@@ -47,8 +47,7 @@ export function MediaPlayer({ open, onClose, kind, title }: Props) {
   const bars = Array.from({ length: 40 });
   const total = 24;
   const cur = Math.floor(progress * total);
-  const fmt = (s: number) =>
-    `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
+  const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
 
   return (
     <div
@@ -97,9 +96,7 @@ export function MediaPlayer({ open, onClose, kind, title }: Props) {
           )}
           <div className="flex h-20 items-end justify-center gap-1">
             {bars.map((_, i) => {
-              const h = playing
-                ? 20 + Math.abs(Math.sin(i * 0.6 + progress * 18)) * 78
-                : 24;
+              const h = playing ? 20 + Math.abs(Math.sin(i * 0.6 + progress * 18)) * 78 : 24;
               return (
                 <span
                   key={i}
@@ -129,14 +126,10 @@ export function MediaPlayer({ open, onClose, kind, title }: Props) {
             className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition hover:scale-105 active:scale-95"
             aria-label={playing ? "Pause" : "Play"}
           >
-            {playing ? (
-              <Pause className="h-6 w-6" />
-            ) : (
-              <Play className="ml-0.5 h-6 w-6" />
-            )}
+            {playing ? <Pause className="h-6 w-6" /> : <Play className="ml-0.5 h-6 w-6" />}
           </button>
           <a
-            href={wa(`Namaste, mujhe ${title} book karna hai.`)}
+            href={wa(`Hello, I would like to book ${title}.`)}
             target="_blank"
             rel="noopener noreferrer"
             className="flex-1 rounded-full bg-secondary px-5 py-3 text-center text-sm font-semibold text-secondary-foreground transition hover:opacity-90"
@@ -145,7 +138,7 @@ export function MediaPlayer({ open, onClose, kind, title }: Props) {
           </a>
         </div>
         <p className="mt-3 text-center text-xs text-muted-foreground">
-          Demo visualizer — actual samples WhatsApp par share kiye jaate hain.
+          Demo visualizer - actual samples are shared on WhatsApp after consultation.
         </p>
       </div>
     </div>

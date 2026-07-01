@@ -32,7 +32,7 @@ export function PricingCard({ plan, kind, icon, onPreview }: Props) {
           <Play className="h-4 w-4" /> Play Preview
         </button>
         <a
-          href={wa(`Namaste, mujhe ${plan.id} book karna hai.`)}
+          href={wa(`Hello, I would like to book ${plan.id}.`)}
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center rounded-full bg-secondary px-4 py-2.5 text-sm font-semibold text-secondary-foreground transition hover:opacity-90"

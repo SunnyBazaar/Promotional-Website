@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Menu, MessageCircle, X } from "lucide-react";
-import { GENERAL_WA } from "@/lib/site";
+import { GENERAL_WA, SITE_NAME } from "@/lib/site";
 
 const links = [
   { href: "#services", label: "Services" },
@@ -41,10 +41,10 @@ export function Navbar() {
           </span>
           <span className="min-w-0 leading-tight">
             <span className="block truncate text-sm font-extrabold sm:text-base">
-              Local Marketing wala
+              {SITE_NAME}
             </span>
             <span className="block truncate text-[11px] text-muted-foreground">
-              Digital Promotion for Local Businesses
+              Digital Marketing for Local Businesses
             </span>
           </span>
         </a>

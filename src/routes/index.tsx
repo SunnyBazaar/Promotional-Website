@@ -34,6 +34,8 @@ import {
   audioPlans,
   GENERAL_WA,
   packages,
+  SERVICE_AREA,
+  SITE_NAME,
   TEL,
   videoPlans,
   wa,
@@ -44,13 +46,13 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Local Marketing wala – Digital Promotion for Local Businesses" },
+      { title: `${SITE_NAME} - Digital Promotion for Local Businesses` },
       {
         name: "description",
         content:
-          "Local Marketing wala – Digital marketing, audio & video promotion, and yearly branding packages for local businesses in Rampur Jaunpur (U.P).",
+          `${SITE_NAME} provides digital marketing creatives, promotional audio, promotional videos, and yearly branding packages for local businesses in ${SERVICE_AREA}.`,
       },
-      { property: "og:title", content: "Local Marketing wala – Digital Promotion" },
+      { property: "og:title", content: `${SITE_NAME} - Digital Promotion` },
       {
         property: "og:description",
         content:
@@ -62,9 +64,9 @@ export const Route = createFileRoute("/")({
 });
 
 const audiences = [
-  { icon: Store, label: "Local shops & retailers" },
-  { icon: GraduationCap, label: "Coaching centers & institutes" },
-  { icon: Stethoscope, label: "Clinics & healthcare services" },
+  { icon: Store, label: "Retail stores and local shops" },
+  { icon: GraduationCap, label: "Coaching centers and institutes" },
+  { icon: Stethoscope, label: "Clinics and healthcare services" },
   { icon: Building2, label: "Agencies & service businesses" },
   { icon: CarFront, label: "Showrooms & dealerships" },
 ];
@@ -73,16 +75,40 @@ const whatWeDo = [
   { icon: ImageIcon, label: "Digital creatives (posters, social media graphics)" },
   { icon: Volume2, label: "Promotional audio jingles for local announcements" },
   { icon: Video, label: "Promotional videos for branding & offers" },
-  { icon: Calendar, label: "Yearly marketing support & packages" },
+  { icon: Calendar, label: "Yearly marketing support packages" },
 ];
 
 const why = [
-  { icon: Wallet, title: "Affordable pricing", desc: "Small businesses ke liye reasonable packages, clear costing bina hidden charges." },
-  { icon: MapPin, title: "Local business focused", desc: "Shopkeepers, institutes, clinics, agencies aur retailers ke liye specially designed content." },
-  { icon: Timer, title: "Fast delivery", desc: "Simple process, fast turnaround time – promotional content jaldi ready." },
-  { icon: Sparkles, title: "Custom marketing content", desc: "Aapke business ke hisaab se customized audio, video & graphics." },
-  { icon: Megaphone, title: "WhatsApp support", desc: "Direct WhatsApp par service details, samples aur booking support." },
-  { icon: Calendar, title: "Yearly branding solutions", desc: "Long-term packages jo aapke brand ko local audience me top-of-mind rakhte hain." },
+  {
+    icon: Wallet,
+    title: "Affordable pricing",
+    desc: "Clear, affordable packages designed for small businesses with transparent pricing.",
+  },
+  {
+    icon: MapPin,
+    title: "Local business focused",
+    desc: "Content strategies tailored for shops, institutes, clinics, agencies, retailers, and service businesses.",
+  },
+  {
+    icon: Timer,
+    title: "Fast delivery",
+    desc: "A simple process and efficient delivery timeline for campaign-ready promotional content.",
+  },
+  {
+    icon: Sparkles,
+    title: "Custom marketing content",
+    desc: "Customized audio, video, and graphic assets aligned with your business goals.",
+  },
+  {
+    icon: Megaphone,
+    title: "WhatsApp support",
+    desc: "Direct WhatsApp support for service details, samples, and booking assistance.",
+  },
+  {
+    icon: Calendar,
+    title: "Yearly branding solutions",
+    desc: "Long-term branding packages that keep your business visible to the local audience.",
+  },
 ];
 
 const audioIcons = [Volume2, Mic, Headphones];
@@ -104,8 +130,7 @@ function Index() {
   useReveal();
   const [player, setPlayer] = useState<{ kind: MediaKind; title: string } | null>(null);
 
-  const openPreview = (kind: MediaKind, plan: Plan) =>
-    setPlayer({ kind, title: plan.title });
+  const openPreview = (kind: MediaKind, plan: Plan) => setPlayer({ kind, title: plan.title });
 
   return (
     <div className="min-h-screen bg-background">
@@ -124,17 +149,17 @@ function Index() {
               <Sparkles className="h-3.5 w-3.5" /> Local Business Digital Promotion
             </span>
             <h1 className="mt-5 text-4xl font-extrabold leading-[1.1] sm:text-5xl lg:text-6xl">
-              Apne Local Business ko{" "}
-              <span className="text-gradient-brand">Digital Promotion</span> do
+              Grow Your Local Business with{" "}
+              <span className="text-gradient-brand">Digital Promotion</span>
             </h1>
             <p className="mt-5 max-w-xl text-lg text-muted-foreground">
-              Hum aapke dukaan, coaching, clinic, showroom ya service business ke liye digital
-              marketing creatives, promotional audio, promotional videos, aur yearly branding
-              packages provide karte hain.
+              Professional digital creatives, promotional audio, promotional videos, and yearly
+              branding packages for shops, coaching centers, clinics, showrooms, and service
+              businesses.
             </p>
             <p className="mt-4 text-sm text-muted-foreground">
-              Audio | Video | Yearly Promotion Packages – local shopkeepers, institutes, agencies,
-              clinics aur retailers ke liye specially designed.
+              Audio, video, and yearly promotion packages designed for local retailers, institutes,
+              agencies, clinics, and service providers.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <a
@@ -158,19 +183,19 @@ function Index() {
             <div className="glass rounded-3xl p-6 shadow-2xl sm:p-8">
               <div className="flex items-start justify-between gap-3">
                 <h3 className="text-lg font-bold leading-snug">
-                  Local Marketing wala
+                  {SITE_NAME}
                   <span className="block text-sm font-medium text-muted-foreground">
-                    Rampur Jaunpur (U.P)
+                    {SERVICE_AREA}
                   </span>
                 </h3>
                 <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5 text-xs font-semibold text-secondary-foreground">
-                  <Megaphone className="h-3.5 w-3.5" /> A/V • Yearly
+                  <Megaphone className="h-3.5 w-3.5" /> A/V - Yearly
                 </span>
               </div>
               <div className="mt-6 grid gap-3">
                 {[
-                  "Custom creatives for festivals, offers aur daily promotion",
-                  "Ready-made promotional audio & video for local market branding",
+                  "Custom creatives for festivals, offers, and daily promotion",
+                  "Ready-made promotional audio and video for local market branding",
                   "Yearly packages for consistent digital presence",
                 ].map((t) => (
                   <div
@@ -183,7 +208,7 @@ function Index() {
                 ))}
               </div>
               <div className="mt-6 flex items-center gap-2 text-sm font-medium text-primary-dark">
-                <MapPin className="h-4 w-4" /> Proudly serving Rampur Jaunpur & nearby
+                <MapPin className="h-4 w-4" /> Proudly serving {SERVICE_AREA} and nearby markets
               </div>
             </div>
           </div>
@@ -194,16 +219,16 @@ function Index() {
       <section id="services" className="bg-surface py-20 sm:py-24">
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
-            kicker="Hum kya karte hain"
-            title="Simple, local-friendly marketing"
-            sub="Local Marketing wala ek local-business focused digital promotion service hai, jo aapke business ko online aur audio/video ke through zyada visible banata hai."
+            kicker="What we do"
+            title="Professional marketing for local businesses"
+            sub={`${SITE_NAME} helps local businesses improve visibility through digital creatives, audio promotions, video content, and structured yearly branding support.`}
           />
           <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
             <div className="reveal rounded-3xl border border-border bg-card p-7">
               <h3 className="text-xl font-bold">Easy-to-understand content</h3>
               <p className="mt-2 text-sm text-muted-foreground">
-                Hum aapke shop, service ya institute ke liye easy digital marketing content tayar
-                karte hain, taki aapko complicated technical cheezon me na jaana pade.
+                We create clear, business-ready marketing content for shops, service providers, and
+                institutes so you can promote consistently without managing complex production work.
               </p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 {whatWeDo.map((w) => (
@@ -242,7 +267,7 @@ function Index() {
           <SectionHeading
             kicker="Audio Services"
             title="Promotional audio jingles"
-            sub="Professional audio jo aapke business ka naam, offer aur details ko clear aur attractive tarike se announce karta hai."
+            sub="Professional audio that communicates your business name, offer, and key details in a clear and engaging format."
           />
           <div className="grid gap-6 md:grid-cols-3">
             {audioPlans.map((p, i) => {
@@ -267,7 +292,7 @@ function Index() {
           <SectionHeading
             kicker="Video Services"
             title="Promotional brand videos"
-            sub="Attractive videos jo aapke offers, services aur branding ko local audience tak strong tarike se pahunchate hain."
+            sub="Attractive videos that present your offers, services, and branding clearly to your local audience."
           />
           <div className="grid gap-6 md:grid-cols-3">
             {videoPlans.map((p, i) => {
@@ -287,12 +312,15 @@ function Index() {
       </section>
 
       {/* PACKAGES */}
-      <section id="packages" className="bg-gradient-to-br from-primary/8 to-secondary/10 py-20 sm:py-24">
+      <section
+        id="packages"
+        className="bg-gradient-to-br from-primary/8 to-secondary/10 py-20 sm:py-24"
+      >
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
             kicker="Yearly Packages"
             title="Year-round branding support"
-            sub="Graphics, videos aur marketing support jo aapke business ko local market me consistently visible banata hai."
+            sub="Graphics, videos, and marketing support that keep your business consistently visible in the local market."
           />
           <div className="grid items-stretch gap-6 md:grid-cols-3">
             {packages.map((pkg) => (
@@ -346,8 +374,8 @@ function Index() {
         <div className="mx-auto max-w-6xl px-5">
           <SectionHeading
             kicker="Why us"
-            title="Kyōn choose karein Local Marketing wala?"
-            sub="Practical, local-business focused services jo aapke budget aur ground reality ko dhyān me rakh kar design kiye gaye hain."
+            title={`Why choose ${SITE_NAME}?`}
+            sub="Practical services designed around local business budgets, customer behavior, and real promotional needs."
           />
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {why.map((w) => (
@@ -377,12 +405,12 @@ function Index() {
               ))}
             </div>
             <blockquote className="text-lg leading-relaxed">
-              “Local Marketing wala ne hamare coaching center ke liye regular graphics aur festive
-              videos banaye. WhatsApp aur social media par branding kaafi improve hui hai.”
+              "{SITE_NAME} helped our coaching center maintain consistent graphics and seasonal
+              videos. Our WhatsApp and social media branding improved noticeably."
             </blockquote>
             <figcaption className="mt-5">
               <p className="font-semibold">Sample Client Name</p>
-              <p className="text-sm text-muted-foreground">Coaching Center Owner, Rampur Jaunpur</p>
+              <p className="text-sm text-muted-foreground">Coaching Center Owner, {SERVICE_AREA}</p>
             </figcaption>
           </figure>
         </div>
@@ -394,7 +422,7 @@ function Index() {
           <SectionHeading
             kicker="FAQ"
             title="Frequently asked questions"
-            sub="Kuch basic sawal jinka jawab yaha mil jayega. Detailed discussion ke liye direct WhatsApp par connect kar sakte hain."
+            sub="Answers to common questions about our services, booking process, and package options."
           />
           <Faq />
         </div>
@@ -428,7 +456,7 @@ function Index() {
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary-dark font-extrabold text-primary-foreground">
                 LM
               </span>
-              <span className="text-lg font-bold">Local Marketing wala</span>
+              <span className="text-lg font-bold">{SITE_NAME}</span>
             </div>
             <p className="mt-3 max-w-md text-sm text-background/60">
               Digital Marketing Services for Local Businesses.
@@ -438,10 +466,10 @@ function Index() {
                 <Phone className="h-4 w-4" /> +91 8564965086
               </span>
               <span className="flex items-center gap-2">
-                <Megaphone className="h-4 w-4" /> WhatsApp: 9198564965086
+                <Megaphone className="h-4 w-4" /> WhatsApp: 91 8564965086
               </span>
               <span className="flex items-center gap-2">
-                <MapPin className="h-4 w-4" /> Rampur Jaunpur (U.P)
+                <MapPin className="h-4 w-4" /> {SERVICE_AREA}
               </span>
             </div>
             <div className="mt-5 flex flex-wrap gap-3">
@@ -466,21 +494,21 @@ function Index() {
               <Rocket className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
               <p>
                 <span className="font-semibold text-background">Services:</span> Digital creatives,
-                promotional audio, promotional video, yearly branding packages aur aage chal kar
-                website/software/performance marketing solutions.
+                promotional audio, promotional video, yearly branding packages, and planned
+                website, software, and performance marketing solutions.
               </p>
             </div>
             <div className="flex items-start gap-3">
               <AudioLines className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
               <p>
                 <span className="font-semibold text-background">Target:</span> Local shops, coaching
-                centers, clinics, retailers, agencies, showrooms aur doosre small businesses.
+                centers, clinics, retailers, agencies, showrooms, and other small businesses.
               </p>
             </div>
           </div>
         </div>
         <div className="mx-auto mt-10 max-w-6xl border-t border-background/10 px-5 pt-6 text-center text-xs text-background/50">
-          © {new Date().getFullYear()} Local Marketing wala – Local Market Digital Promotion Services
+          Copyright {new Date().getFullYear()} {SITE_NAME} - Local Market Digital Promotion Services
         </div>
       </footer>
 
