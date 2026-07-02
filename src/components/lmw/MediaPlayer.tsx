@@ -44,7 +44,7 @@ export function MediaPlayer({ open, onClose, kind, title }: Props) {
 
   if (!open) return null;
 
-  const bars = Array.from({ length: 40 });
+  const bars = Array.from({ length: 28 });
   const total = 24;
   const cur = Math.floor(progress * total);
   const fmt = (s: number) => `${Math.floor(s / 60)}:${String(Math.floor(s % 60)).padStart(2, "0")}`;
@@ -61,7 +61,7 @@ export function MediaPlayer({ open, onClose, kind, title }: Props) {
         onClick={onClose}
         className="absolute inset-0 bg-foreground/50 backdrop-blur-sm animate-[reveal-up_.3s_ease]"
       />
-      <div className="relative w-full max-w-lg origin-bottom animate-[reveal-up_.45s_cubic-bezier(.22,1,.36,1)] rounded-t-3xl border border-border bg-card p-6 shadow-2xl sm:rounded-3xl sm:p-8">
+      <div className="relative w-full max-w-lg origin-bottom animate-[reveal-up_.45s_cubic-bezier(.22,1,.36,1)] rounded-t-3xl border border-border bg-card p-4 shadow-2xl sm:rounded-3xl sm:p-8">
         <div className="mx-auto mb-5 h-1.5 w-12 rounded-full bg-muted sm:hidden" />
         <button
           onClick={onClose}
@@ -88,19 +88,19 @@ export function MediaPlayer({ open, onClose, kind, title }: Props) {
         </div>
 
         {/* Visualizer */}
-        <div className="mt-6 overflow-hidden rounded-2xl bg-gradient-to-br from-secondary to-primary-dark p-6">
+        <div className="mt-6 overflow-hidden rounded-2xl bg-gradient-to-br from-secondary to-primary-dark p-4 sm:p-6">
           {kind === "video" && (
             <div className="mb-4 grid aspect-video w-full place-items-center rounded-xl bg-foreground/20 text-primary-foreground/70">
               <Clapperboard className="h-10 w-10" />
             </div>
           )}
-          <div className="flex h-20 items-end justify-center gap-1">
+          <div className="flex h-20 items-end justify-center gap-0.5 sm:gap-1">
             {bars.map((_, i) => {
               const h = playing ? 20 + Math.abs(Math.sin(i * 0.6 + progress * 18)) * 78 : 24;
               return (
                 <span
                   key={i}
-                  className="w-1.5 rounded-full bg-primary-foreground/80 transition-[height] duration-150"
+                  className="w-1 rounded-full bg-primary-foreground/80 transition-[height] duration-150 sm:w-1.5"
                   style={{ height: `${h}%` }}
                 />
               );
@@ -120,10 +120,10 @@ export function MediaPlayer({ open, onClose, kind, title }: Props) {
           <span className="text-xs tabular-nums text-muted-foreground">{fmt(total)}</span>
         </div>
 
-        <div className="mt-6 flex items-center justify-between gap-3">
+        <div className="mt-6 grid gap-3 sm:flex sm:items-center sm:justify-between">
           <button
             onClick={() => setPlaying((p) => !p)}
-            className="grid h-14 w-14 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition hover:scale-105 active:scale-95"
+            className="mx-auto grid h-14 w-14 shrink-0 place-items-center rounded-full bg-primary text-primary-foreground shadow-lg shadow-primary/30 transition hover:scale-105 active:scale-95 sm:mx-0"
             aria-label={playing ? "Pause" : "Play"}
           >
             {playing ? <Pause className="h-6 w-6" /> : <Play className="ml-0.5 h-6 w-6" />}
@@ -132,7 +132,7 @@ export function MediaPlayer({ open, onClose, kind, title }: Props) {
             href={wa(`Hello, I would like to book ${title}.`)}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex-1 rounded-full bg-secondary px-5 py-3 text-center text-sm font-semibold text-secondary-foreground transition hover:opacity-90"
+            className="min-w-0 flex-1 rounded-full bg-secondary px-5 py-3 text-center text-sm font-semibold text-secondary-foreground transition hover:opacity-90"
           >
             Book {title} on WhatsApp
           </a>

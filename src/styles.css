@@ -157,11 +157,21 @@
     -webkit-font-smoothing: antialiased;
   }
 
+  html {
+    scroll-behavior: smooth;
+  }
+
+  html,
+  body {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
   h1,
   h2,
   h3,
   h4 {
-    letter-spacing: -0.02em;
+    letter-spacing: 0;
   }
 }
 

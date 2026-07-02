@@ -116,12 +116,12 @@ const videoIcons = [Video, Clapperboard, Sparkles];
 
 function SectionHeading({ kicker, title, sub }: { kicker: string; title: string; sub?: string }) {
   return (
-    <div className="reveal mx-auto mb-12 max-w-2xl text-center">
-      <span className="inline-flex items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold uppercase tracking-widest text-primary-dark">
+    <div className="reveal mx-auto mb-8 max-w-2xl text-center sm:mb-12">
+      <span className="inline-flex max-w-full items-center gap-2 rounded-full bg-primary/10 px-3 py-1 text-[11px] font-semibold uppercase text-primary-dark sm:text-xs">
         {kicker}
       </span>
-      <h2 className="mt-4 text-3xl font-extrabold sm:text-4xl">{title}</h2>
-      {sub && <p className="mt-3 text-muted-foreground">{sub}</p>}
+      <h2 className="mt-4 text-2xl font-extrabold leading-tight sm:text-4xl">{title}</h2>
+      {sub && <p className="mt-3 text-sm leading-relaxed text-muted-foreground sm:text-base">{sub}</p>}
     </div>
   );
 }
@@ -143,16 +143,16 @@ function Index() {
           <div className="absolute -left-32 -top-32 h-96 w-96 rounded-full bg-primary/15 blur-3xl" />
           <div className="absolute -right-24 top-24 h-96 w-96 rounded-full bg-secondary/15 blur-3xl" />
         </div>
-        <div className="mx-auto grid max-w-6xl items-center gap-12 px-5 py-16 sm:py-24 lg:grid-cols-[1.15fr_1fr]">
+        <div className="mx-auto grid max-w-6xl items-center gap-8 px-4 py-12 sm:gap-12 sm:px-5 sm:py-24 lg:grid-cols-[1.15fr_1fr]">
           <div className="reveal">
-            <span className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-primary-dark">
+            <span className="inline-flex max-w-full items-center gap-2 rounded-full border border-border bg-surface px-3 py-1.5 text-xs font-semibold text-primary-dark">
               <Sparkles className="h-3.5 w-3.5" /> Local Business Digital Promotion
             </span>
-            <h1 className="mt-5 text-4xl font-extrabold leading-[1.1] sm:text-5xl lg:text-6xl">
+            <h1 className="mt-5 max-w-4xl text-3xl font-extrabold leading-tight sm:text-5xl lg:text-6xl">
               Grow Your Local Business with{" "}
               <span className="text-gradient-brand">Digital Promotion</span>
             </h1>
-            <p className="mt-5 max-w-xl text-lg text-muted-foreground">
+            <p className="mt-5 max-w-xl text-base leading-relaxed text-muted-foreground sm:text-lg">
               Professional digital creatives, promotional audio, promotional videos, and yearly
               branding packages for shops, coaching centers, clinics, showrooms, and service
               businesses.
@@ -161,18 +161,18 @@ function Index() {
               Audio, video, and yearly promotion packages designed for local retailers, institutes,
               agencies, clinics, and service providers.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-8 grid gap-3 sm:flex sm:flex-wrap">
               <a
                 href={GENERAL_WA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lg shadow-primary/30 transition hover:-translate-y-0.5"
               >
                 <Megaphone className="h-5 w-5" /> WhatsApp Now
               </a>
               <a
                 href="#packages"
-                className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 font-semibold text-foreground transition hover:border-primary/50"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-border bg-card px-6 py-3.5 font-semibold text-foreground transition hover:border-primary/50"
               >
                 View Packages
               </a>
@@ -180,15 +180,15 @@ function Index() {
           </div>
 
           <div className="reveal">
-            <div className="glass rounded-3xl p-6 shadow-2xl sm:p-8">
-              <div className="flex items-start justify-between gap-3">
+            <div className="glass rounded-2xl p-5 shadow-2xl sm:rounded-3xl sm:p-8">
+              <div className="grid gap-3 sm:flex sm:items-start sm:justify-between">
                 <h3 className="text-lg font-bold leading-snug">
                   {SITE_NAME}
                   <span className="block text-sm font-medium text-muted-foreground">
                     {SERVICE_AREA}
                   </span>
                 </h3>
-                <span className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5 text-xs font-semibold text-secondary-foreground">
+                <span className="inline-flex w-fit shrink-0 items-center gap-1.5 rounded-full bg-secondary px-3 py-1.5 text-xs font-semibold text-secondary-foreground">
                   <Megaphone className="h-3.5 w-3.5" /> A/V - Yearly
                 </span>
               </div>
@@ -200,7 +200,7 @@ function Index() {
                 ].map((t) => (
                   <div
                     key={t}
-                    className="flex items-start gap-3 rounded-2xl border border-border bg-card/70 p-4 text-sm"
+                    className="flex items-start gap-3 rounded-xl border border-border bg-card/70 p-3 text-sm sm:rounded-2xl sm:p-4"
                   >
                     <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0 text-accent" />
                     <span>{t}</span>
@@ -216,15 +216,15 @@ function Index() {
       </section>
 
       {/* SERVICES / ABOUT */}
-      <section id="services" className="bg-surface py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-5">
+      <section id="services" className="bg-surface py-14 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-5">
           <SectionHeading
             kicker="What we do"
             title="Professional marketing for local businesses"
             sub={`${SITE_NAME} helps local businesses improve visibility through digital creatives, audio promotions, video content, and structured yearly branding support.`}
           />
           <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
-            <div className="reveal rounded-3xl border border-border bg-card p-7">
+            <div className="reveal rounded-2xl border border-border bg-card p-5 sm:rounded-3xl sm:p-7">
               <h3 className="text-xl font-bold">Easy-to-understand content</h3>
               <p className="mt-2 text-sm text-muted-foreground">
                 We create clear, business-ready marketing content for shops, service providers, and
@@ -232,7 +232,7 @@ function Index() {
               </p>
               <div className="mt-6 grid gap-3 sm:grid-cols-2">
                 {whatWeDo.map((w) => (
-                  <div key={w.label} className="flex items-start gap-3 rounded-2xl bg-surface p-4">
+                  <div key={w.label} className="flex items-start gap-3 rounded-xl bg-surface p-3 sm:rounded-2xl sm:p-4">
                     <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-accent/15 text-accent">
                       <w.icon className="h-5 w-5" />
                     </span>
@@ -241,7 +241,7 @@ function Index() {
                 ))}
               </div>
             </div>
-            <div className="reveal rounded-3xl border border-border bg-card p-7">
+            <div className="reveal rounded-2xl border border-border bg-card p-5 sm:rounded-3xl sm:p-7">
               <p className="text-sm font-semibold text-muted-foreground">Suitable for:</p>
               <div className="mt-4 grid gap-3">
                 {audiences.map((a) => (
@@ -262,8 +262,8 @@ function Index() {
       </section>
 
       {/* AUDIO */}
-      <section id="audio" className="py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-5">
+      <section id="audio" className="py-14 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-5">
           <SectionHeading
             kicker="Audio Services"
             title="Promotional audio jingles"
@@ -287,8 +287,8 @@ function Index() {
       </section>
 
       {/* VIDEO */}
-      <section id="video" className="bg-surface py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-5">
+      <section id="video" className="bg-surface py-14 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-5">
           <SectionHeading
             kicker="Video Services"
             title="Promotional brand videos"
@@ -314,9 +314,9 @@ function Index() {
       {/* PACKAGES */}
       <section
         id="packages"
-        className="bg-gradient-to-br from-primary/8 to-secondary/10 py-20 sm:py-24"
+        className="bg-gradient-to-br from-primary/8 to-secondary/10 py-14 sm:py-24"
       >
-        <div className="mx-auto max-w-6xl px-5">
+        <div className="mx-auto max-w-6xl px-4 sm:px-5">
           <SectionHeading
             kicker="Yearly Packages"
             title="Year-round branding support"
@@ -326,19 +326,19 @@ function Index() {
             {packages.map((pkg) => (
               <article
                 key={pkg.title}
-                className={`reveal relative flex flex-col gap-3 rounded-3xl bg-card p-7 transition-all duration-300 hover:-translate-y-1.5 ${
+                className={`reveal relative flex flex-col gap-3 rounded-2xl bg-card p-5 transition-all duration-300 hover:-translate-y-1.5 sm:rounded-3xl sm:p-7 ${
                   pkg.popular
                     ? "border-2 border-primary shadow-[0_28px_55px_-20px_rgba(255,122,0,0.5)] md:-translate-y-4 md:scale-[1.03]"
                     : "border border-border shadow-[0_14px_35px_-18px_rgba(0,0,0,0.18)]"
                 }`}
               >
                 {pkg.popular && (
-                  <span className="absolute -top-3 left-1/2 inline-flex -translate-x-1/2 items-center gap-1.5 rounded-full bg-primary px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-primary-foreground shadow-md">
+                  <span className="absolute -top-3 left-1/2 inline-flex w-max max-w-[calc(100%-2rem)] -translate-x-1/2 items-center gap-1.5 rounded-full bg-primary px-4 py-1.5 text-[11px] font-bold uppercase text-primary-foreground shadow-md sm:text-xs">
                     <Star className="h-3.5 w-3.5 fill-current" /> Most Popular
                   </span>
                 )}
                 <h3 className="mt-2 text-lg font-bold leading-snug">{pkg.title}</h3>
-                <div className="flex items-baseline gap-2">
+                <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                   <span className="text-3xl font-extrabold text-secondary">{pkg.price}</span>
                   <span className="text-xs text-muted-foreground">/ year</span>
                 </div>
@@ -355,7 +355,7 @@ function Index() {
                   href={wa(pkg.bookText)}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`mt-auto inline-flex items-center justify-center rounded-full px-5 py-3 text-sm font-semibold transition hover:opacity-90 ${
+                  className={`mt-auto inline-flex items-center justify-center rounded-full px-5 py-3 text-center text-sm font-semibold transition hover:opacity-90 ${
                     pkg.popular
                       ? "bg-primary text-primary-foreground shadow-lg shadow-primary/30"
                       : "bg-secondary text-secondary-foreground"
@@ -370,8 +370,8 @@ function Index() {
       </section>
 
       {/* WHY CHOOSE */}
-      <section className="py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-5">
+      <section className="py-14 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-5">
           <SectionHeading
             kicker="Why us"
             title={`Why choose ${SITE_NAME}?`}
@@ -381,7 +381,7 @@ function Index() {
             {why.map((w) => (
               <div
                 key={w.title}
-                className="reveal rounded-3xl border border-border bg-card p-6 transition hover:-translate-y-1 hover:shadow-lg"
+                className="reveal rounded-2xl border border-border bg-card p-5 transition hover:-translate-y-1 hover:shadow-lg sm:rounded-3xl sm:p-6"
               >
                 <span className="grid h-12 w-12 place-items-center rounded-2xl bg-accent/12 text-accent">
                   <w.icon className="h-6 w-6" />
@@ -395,16 +395,16 @@ function Index() {
       </section>
 
       {/* TESTIMONIAL */}
-      <section className="bg-surface py-20 sm:py-24">
-        <div className="mx-auto max-w-3xl px-5">
+      <section className="bg-surface py-14 sm:py-24">
+        <div className="mx-auto max-w-3xl px-4 sm:px-5">
           <SectionHeading kicker="Client feedback" title="Trust that grows your brand" />
-          <figure className="reveal rounded-3xl border border-border bg-card p-8 shadow-sm">
+          <figure className="reveal rounded-2xl border border-border bg-card p-5 shadow-sm sm:rounded-3xl sm:p-8">
             <div className="mb-4 flex gap-1 text-primary">
               {Array.from({ length: 5 }).map((_, i) => (
                 <Star key={i} className="h-5 w-5 fill-current" />
               ))}
             </div>
-            <blockquote className="text-lg leading-relaxed">
+            <blockquote className="text-base leading-relaxed sm:text-lg">
               "{SITE_NAME} helped our coaching center maintain consistent graphics and seasonal
               videos. Our WhatsApp and social media branding improved noticeably."
             </blockquote>
@@ -417,8 +417,8 @@ function Index() {
       </section>
 
       {/* FAQ */}
-      <section id="faq" className="py-20 sm:py-24">
-        <div className="mx-auto max-w-6xl px-5">
+      <section id="faq" className="py-14 sm:py-24">
+        <div className="mx-auto max-w-6xl px-4 sm:px-5">
           <SectionHeading
             kicker="FAQ"
             title="Frequently asked questions"
@@ -430,7 +430,7 @@ function Index() {
 
       {/* BOTTOM CTA */}
       <section className="bg-secondary py-12 text-secondary-foreground">
-        <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-5 px-5 text-center sm:flex-row sm:text-left">
+        <div className="mx-auto flex max-w-6xl flex-col items-stretch justify-between gap-5 px-4 text-center sm:flex-row sm:items-center sm:px-5 sm:text-left">
           <div>
             <p className="text-xs font-semibold uppercase tracking-widest text-secondary-foreground/70">
               Coming soon
@@ -441,7 +441,7 @@ function Index() {
           </div>
           <a
             href={`tel:${TEL}`}
-            className="inline-flex items-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lg transition hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-6 py-3.5 font-semibold text-primary-foreground shadow-lg transition hover:-translate-y-0.5"
           >
             <Phone className="h-5 w-5" /> Call Now
           </a>
@@ -450,7 +450,7 @@ function Index() {
 
       {/* FOOTER */}
       <footer className="bg-foreground py-14 text-background">
-        <div className="mx-auto grid max-w-6xl gap-10 px-5 md:grid-cols-[1.3fr_1fr]">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-5 md:grid-cols-[1.3fr_1fr]">
           <div>
             <div className="flex items-center gap-3">
               <span className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary-dark font-extrabold text-primary-foreground">
@@ -472,18 +472,18 @@ function Index() {
                 <MapPin className="h-4 w-4" /> {SERVICE_AREA}
               </span>
             </div>
-            <div className="mt-5 flex flex-wrap gap-3">
+            <div className="mt-5 grid gap-3 sm:flex sm:flex-wrap">
               <a
                 href={GENERAL_WA}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
+                className="inline-flex items-center justify-center gap-2 rounded-full bg-primary px-4 py-2.5 text-sm font-semibold text-primary-foreground"
               >
                 <Megaphone className="h-4 w-4" /> WhatsApp Now
               </a>
               <a
                 href={`tel:${TEL}`}
-                className="inline-flex items-center gap-2 rounded-full border border-background/25 px-4 py-2.5 text-sm font-semibold"
+                className="inline-flex items-center justify-center gap-2 rounded-full border border-background/25 px-4 py-2.5 text-sm font-semibold"
               >
                 <Phone className="h-4 w-4" /> Call Now
               </a>

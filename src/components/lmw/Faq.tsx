@@ -15,10 +15,10 @@ export function Faq() {
           >
             <button
               onClick={() => setOpen(active ? null : i)}
-              className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left"
+              className="flex w-full items-center justify-between gap-4 px-4 py-4 text-left sm:px-5"
               aria-expanded={active}
             >
-              <span className="font-semibold">{f.q}</span>
+              <span className="text-sm font-semibold leading-snug sm:text-base">{f.q}</span>
               <ChevronDown
                 className={`h-5 w-5 shrink-0 text-primary-dark transition-transform duration-300 ${
                   active ? "rotate-180" : ""
@@ -30,7 +30,7 @@ export function Faq() {
               style={{ gridTemplateRows: active ? "1fr" : "0fr" }}
             >
               <div className="overflow-hidden">
-                <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">{f.a}</p>
+                <p className="px-4 pb-5 text-sm leading-relaxed text-muted-foreground sm:px-5">{f.a}</p>
               </div>
             </div>
           </div>

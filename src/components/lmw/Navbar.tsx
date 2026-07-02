@@ -34,16 +34,16 @@ export function Navbar() {
         scrolled ? "glass shadow-sm" : "bg-background/0"
       }`}
     >
-      <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-3">
+      <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-5">
         <a href="#hero" onClick={(e) => go(e, "#hero")} className="flex min-w-0 items-center gap-3">
-          <span className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary-dark font-extrabold text-primary-foreground shadow-md shadow-primary/30">
+          <span className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-gradient-to-br from-primary to-primary-dark text-sm font-extrabold text-primary-foreground shadow-md shadow-primary/30 sm:h-10 sm:w-10 sm:text-base">
             LM
           </span>
-          <span className="min-w-0 leading-tight">
+          <span className="min-w-0 max-w-[11rem] leading-tight sm:max-w-none">
             <span className="block truncate text-sm font-extrabold sm:text-base">
               {SITE_NAME}
             </span>
-            <span className="block truncate text-[11px] text-muted-foreground">
+            <span className="block truncate text-[10px] text-muted-foreground sm:text-[11px]">
               Digital Marketing for Local Businesses
             </span>
           </span>
@@ -74,7 +74,7 @@ export function Navbar() {
           <button
             onClick={() => setOpen((o) => !o)}
             aria-label="Toggle menu"
-            className="grid h-10 w-10 place-items-center rounded-xl text-foreground lg:hidden"
+            className="grid h-10 w-10 shrink-0 place-items-center rounded-xl text-foreground lg:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -82,7 +82,7 @@ export function Navbar() {
       </div>
 
       {open && (
-        <div className="border-t border-border glass px-5 pb-5 pt-2 lg:hidden">
+        <div className="border-t border-border glass px-4 pb-5 pt-2 sm:px-5 lg:hidden">
           <nav className="grid gap-1">
             {links.map((l) => (
               <a
